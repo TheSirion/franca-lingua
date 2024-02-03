@@ -1,5 +1,5 @@
+import '@/app/globals.css';
 import { Navbar } from '@/components/component/navbar';
-import './globals.css';
 
 export default function MainLayout({
   children,
