@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { JSX, SVGProps } from 'react';
 
+export const revalidate = 60;
+
 const BlogPost = async ({ params }: { params: { slug: string } }) => {
   const post = await fetchPost(params.slug);
   const blogImageUrl = urlFor(post.mainImage.image).url();

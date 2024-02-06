@@ -57,6 +57,11 @@ export default defineType({
       type: 'blockContent',
     }),
     defineField({
+      name: 'excerpt',
+      title: 'Resumo',
+      type: 'text',
+    }),
+    defineField({
       name: 'Featured',
       title: 'Destaque',
       type: 'boolean',

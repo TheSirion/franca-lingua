@@ -1,36 +1,34 @@
 import { urlFor } from '@/app/lib/sanity/client';
+import { Post } from '@/app/utils/interfaces';
 import Image from 'next/image';
+import Link from 'next/link';
 
-type StoryData = {
-  data: {
-    title: string;
-    mainImage: {
-      image: string;
-      alt: string;
-    };
-  };
-};
-
-const StoryCard = ({ data }: StoryData) => {
-  const { mainImage, title } = data;
+const StoryCard = (props: { data: Post; variant?: string }) => {
+  const { mainImage, title, excerpt, slug } = props.data;
 
   return (
-    <div>
+    <Link
+      href={`/blog/${slug}`}
+      className={`${props.variant === 'top' ? 'lg:col-span-2' : ''}`}>
       <div className='rounded-lg overflow-hidden'>
         <Image
           alt={mainImage.alt}
-          className='w-full h-32 object-cover lg:h-48'
+          className={`w-full object-cover ${
+            props.variant === 'top' ? 'lg:h-100' : 'h-40'
+          }`}
           height='225'
-          src={urlFor(mainImage.image).url()}
-          style={{
-            aspectRatio: '400/225',
-            objectFit: 'cover',
-          }}
           width='400'
+          src={urlFor(mainImage.image).url()}
         />
       </div>
-      <h2 className='mt-4 text-xl font-bold leading-tight'>{title}</h2>
-    </div>
+      <h2
+        className={`mt-4 font-bold leading-tight ${
+          props.variant === 'top' ? 'text-2xl lg:text-3xl' : 'text-2xl'
+        }`}>
+        {title}
+      </h2>
+      <p className='mt-2 text-gray-500 text-sm line-clamp-2 prose'>{excerpt}</p>
+    </Link>
   );
 };
 

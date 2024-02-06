@@ -27,8 +27,25 @@ export const fetchPosts = async () => {
     {
       "image": mainImage.asset._ref, 
         "alt": mainImage.alt
-    }, 
+    },
+    _id, 
 }[0...5]`;
+  const posts = await client.fetch(query);
+  return posts;
+};
+
+export const fetchFeaturedPosts = async () => {
+  const query = `*[_type=='post' && Featured == true]{
+  title,
+  excerpt,
+  "slug": slug.current,
+  "mainImage": 
+    {
+      "image": mainImage.asset._ref, 
+        "alt": mainImage.alt
+    },
+    _id, 
+}[0..2]`;
   const posts = await client.fetch(query);
   return posts;
 };
