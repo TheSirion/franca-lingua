@@ -1,4 +1,3 @@
-import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 import { ModeToggle } from './mode-toggle';
 
@@ -12,8 +11,8 @@ export function Navbar() {
           </h1>
         </Link>
       </div>
-      <div className='flex items-center space-x-4'>
-        <div className='relative'>
+      <div className='flex items-center space-x-2 md:space-x-4'>
+        {/* <div className='relative'>
           <SearchIcon className='absolute left-2.5 top-2.5 h-4 w-4 text-gray-500 dark:text-gray-400' />
           <Input
             className='pl-8 text-gray-900 dark:text-gray-100 dark:bg-gray-700'
@@ -21,7 +20,7 @@ export function Navbar() {
             placeholder='Search...'
             type='search'
           />
-        </div>
+        </div> */}
         <ModeToggle />
       </div>
     </header>

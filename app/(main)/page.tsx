@@ -7,7 +7,7 @@ export const revalidate = 60;
 export default function Home() {
   return (
     <main>
-      <div className='w-2/3 m-auto px-4 md:px-6 lg:px-8 py-12'>
+      <div className='w-5/6 lg:w-2/3 m-auto md:px-6 lg:px-8 py-12'>
         <FeaturedStories />
         <Separator className='my-12' />
         <StoryGrid />
