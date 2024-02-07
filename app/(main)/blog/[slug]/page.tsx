@@ -1,5 +1,6 @@
 import { urlFor } from '@/app/lib/sanity/client';
 import { fetchPost } from '@/app/lib/sanity/fetch-data';
+import { Separator } from '@/components/ui/separator';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -23,7 +24,7 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
   });
 
   return (
-    <div className='mt-8 flex flex-col lg:flex-row justify-center'>
+    <div className='w-full md:w-3/4 lg:w-2/3 mx-auto mt-8 px-5 flex flex-col lg:flex-row justify-center'>
       <main className='w-full lg:w-3/4 space-y-8'>
         <Image
           alt={'Post title'}
@@ -33,13 +34,27 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
           width={800}
         />
         <h1 className='text-4xl font-bold'>{post.title}</h1>
-        <div className='space-y-1'>
-          <p className='text-sm font-semibold'>Publicado em</p>
-          <time className='text-sm text-gray-500'>{createdAt}</time>
-        </div>
-        <div className='space-y-1'>
-          <p className='text-sm font-semibold'>Atualizado em</p>
-          <time className='text-sm text-gray-500'>{updatedAt}</time>
+        <div className='flex flex-col md:flex-row'>
+          <div className='space-y-1'>
+            <p className='text-sm font-semibold'>Publicado em</p>
+            <time
+              dateTime={post.publishedAt}
+              className='text-sm text-gray-500'>
+              {createdAt}
+            </time>
+          </div>
+          <Separator
+            orientation='vertical'
+            className='mx-3 prose dark:prose-invert'
+          />
+          <div className='space-y-1'>
+            <p className='text-sm font-semibold'>Atualizado em</p>
+            <time
+              dateTime={post._updatedAt}
+              className='text-sm text-gray-500'>
+              {updatedAt}
+            </time>
+          </div>
         </div>
         <article className='prose prose-lg max-w-none dark:prose-invert'>
           <PortableText value={post.body} />

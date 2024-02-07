@@ -4,7 +4,6 @@ import StoryCard from './story-card';
 
 const FeaturedStories = async () => {
   const posts = await fetchFeaturedPosts();
-  posts.map((post: Post) => console.log(post._id));
   const topPost = posts[0];
   posts.shift();
 
