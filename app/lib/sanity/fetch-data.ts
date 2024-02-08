@@ -11,6 +11,7 @@ export const fetchPost = async (slug: string) => {
       "image": mainImage.asset._ref, 
         "alt": mainImage.alt
     },
+    excerpt,
     publishedAt,
     _updatedAt, 
 }[0]`;
