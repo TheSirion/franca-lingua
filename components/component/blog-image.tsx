@@ -8,19 +8,13 @@ const BlogImage = ({ value, isInline }: { value: any; isInline: any }) => {
     <>
       <Image
         src={urlFor(value).url()}
-        alt={value.alt || ' '}
+        alt={value.alt}
         width={width}
         height={height}
         loading='lazy'
-        style={{
-          // Display alongside text if image appears inside a block text span
-          display: isInline ? 'inline-block' : 'block',
-
-          // Avoid jumping around with aspect-ratio CSS property
-          aspectRatio: width / height,
-        }}
+        className='rounded-lg mb-0'
       />
-      <p className='text-sm'>{value.alt || ' '}</p>
+      <p className='text-sm mt-2'>{value.alt}</p>
     </>
   );
 };
