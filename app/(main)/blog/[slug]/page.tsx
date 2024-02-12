@@ -1,5 +1,6 @@
 import { urlFor } from '@/app/lib/sanity/client';
 import { fetchPost } from '@/app/lib/sanity/fetch-data';
+import BlogImage from '@/components/component/blog-image';
 import { Separator } from '@/components/ui/separator';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
@@ -18,6 +19,12 @@ export const generateMetadata = async ({ params, searchParams }: Props) => {
     description: post.excerpt,
     image: urlFor(post.mainImage.image).url(),
   };
+};
+
+const components = {
+  types: {
+    image: BlogImage,
+  },
 };
 
 const BlogPost = async ({ params }: { params: { slug: string } }) => {
@@ -75,8 +82,12 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
         </p>
         <Separator className='my-8' />
         <article className='prose max-w-none dark:prose-invert'>
-          <PortableText value={post.body} />
+          <PortableText
+            value={post.body}
+            components={components}
+          />
         </article>
+        <Separator className='my-8' />
         <div className='flex flex-col items-center space-y-4'>
           <Image
             alt={`Escrito por ${post.author.name}`}
