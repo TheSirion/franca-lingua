@@ -7,6 +7,7 @@ export const revalidate = 60;
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://franca-lingua.com.br'),
   authors: [{ name: 'Matheus Ribeiro' }],
   openGraph: {
     title: 'Franca Língua, o guia do estudante de línguas',
@@ -17,13 +18,13 @@ export const metadata: Metadata = {
     locale: 'pt_BR',
     images: [
       {
-        url: './app/(main)/opengraph-image.png',
+        url: './app/(main)/opengraph-image.jpg',
         width: 800,
         height: 600,
         alt: 'Franca Língua, o guia do estudante de línguas',
       },
       {
-        url: './app/(main)/twitter-image.png',
+        url: './app/(main)/twitter-image.jpg',
         width: 800,
         height: 600,
         alt: 'Franca Língua, o guia do estudante de línguas',
