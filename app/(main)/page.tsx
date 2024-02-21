@@ -7,9 +7,29 @@ export const revalidate = 60;
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Franca Língua, o guia do estudante de línguas',
-  description:
-    'Dicas, tutoriais, curiosidades e tudo o que você precisa para aprender com eficiência',
+  authors: [{ name: 'Matheus Ribeiro' }],
+  openGraph: {
+    title: 'Franca Língua, o guia do estudante de línguas',
+    description:
+      'Dicas, tutoriais, curiosidades e tudo o que você precisa para aprender com eficiência',
+    siteName: 'Franca Língua',
+    type: 'website',
+    locale: 'pt_BR',
+    images: [
+      {
+        url: './app/(main)/opengraph-image.png',
+        width: 800,
+        height: 600,
+        alt: 'Franca Língua, o guia do estudante de línguas',
+      },
+      {
+        url: './app/(main)/twitter-image.png',
+        width: 800,
+        height: 600,
+        alt: 'Franca Língua, o guia do estudante de línguas',
+      },
+    ],
+  },
   keywords: [
     'aprender',
     'línguas',
