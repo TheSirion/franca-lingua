@@ -1,6 +1,17 @@
 import '@/app/globals.css';
+import Footer from '@/components/component/footer';
 import { Navbar } from '@/components/component/navbar';
 import Script from 'next/script';
+
+export const metadata = {
+  metadataBase: new URL('https://franca-lingua.com.br/'),
+  title: {
+    template: '%s | Franca Língua, o guia do estudante de línguas',
+    default: 'Franca Língua, o guia do estudante de línguas',
+  },
+  locale: 'pt_BR',
+  type: 'article',
+};
 
 export default function MainLayout({
   children,
@@ -17,6 +28,7 @@ export default function MainLayout({
       />
       <Navbar />
       {children}
+      <Footer />
     </>
   );
 }
