@@ -1,6 +1,7 @@
 import FeaturedStories from '@/components/component/featured-stories';
 import StoryGrid from '@/components/component/story-grid';
 import { Separator } from '@/components/ui/separator';
+import { siteUrl } from '../utils/config';
 
 export const revalidate = 60;
 
@@ -9,8 +10,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   openGraph: {
     title: 'Franca Língua, o guia do estudante de línguas',
-    description:
-      'Dicas, tutoriais, curiosidades e tudo o que você precisa para aprender com eficiência',
+    description: 'Onde você aprende a estudar línguas do melhor jeito.',
     siteName: 'Franca Língua',
     type: 'website',
     locale: 'pt_BR',
@@ -26,6 +26,9 @@ export const metadata: Metadata = {
     'línguas estrangeiras',
     'inglês',
   ],
+  alternates: {
+    canonical: siteUrl,
+  },
 };
 
 export default async function Home() {
